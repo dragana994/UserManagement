@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center" style="padding-top: 20px;">
+            <div class="container" style="padding-left: 0px; padding-right: 0px;">
+                <div class="row">
+                    <div class="col-sm" style="text-align: right;">
+                        <button type="button" class="btn btn-primary" (click)="editUser()">Edit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container box" style="margin-top: 10px;">
+                <div class="row">
+                    <div class="col-2" style="text-align: right;">
+                        <strong><em>Firstname:</em></strong>
+                    </div>
+                    <div class="col" style="text-align: left;">
+                        {{user.firstName}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2" style="text-align: right;">
+                        <strong><em>Lastname:</em></strong>
+                    </div>
+                    <div class="col" style="text-align: left;">
+                        {{user.lastName}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2" style="text-align: right;">
+                        <strong><em>Username:</em></strong>
+                    </div>
+                    <div class="col" style="text-align: left;">
+                        {{user.username}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2" style="text-align: right;">
+                        <strong><em>Email:</em></strong>
+                    </div>
+                    <div class="col" style="text-align: left;">
+                        {{user.email}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2" style="text-align: right;">
+                        <strong><em>Status:</em></strong>
+                    </div>
+                    <div *ngIf="user.active" class="col" style="text-align: left;">
+                        Active
+                    </div>
+                    <div *ngIf="!user.active" class="col" style="text-align: left;">
+                        Deactive
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-user-permission-list [userId]="user.id"></app-user-permission-list>

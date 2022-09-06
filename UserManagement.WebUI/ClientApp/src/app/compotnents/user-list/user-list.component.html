@@ -1,0 +1,67 @@
+<div class="container">
+   <div class="row">
+      <div class="col-lg-12 text-center" style="padding-top: 20px;">
+         <div class="container box" style="display: flex; flex-direction: row;">
+            <input type="text" style="width: 20vw" placeholder="Search by first name" class="form-control"
+               id="searchByFirstName" [(ngModel)]="searchByFirstName" (keyup.Enter)="onSearch()" />
+            <input type="text" style="width: 20vw" placeholder="Search by last name" class="form-control"
+               id="searchByLastName" [(ngModel)]="searchByLastName" (keyup.Enter)="onSearch()" />
+            <div class="col-sm" style="text-align: right;">
+               <button type="button" class="btn btn-primary" (click)="addUser()">Add</button>
+            </div>
+         </div>
+         <div class="container box" style="margin-top: 10px;">
+            <table class="table table-striped">
+               <thead>
+                  <tr>
+                     <th (click)="onSortByColumnChange('firstName')">First name
+                        <i *ngIf="sortByColumn=='firstName' && sortAscending" class="fa fa-arrow-up"
+                           aria-hidden="true"></i>
+                        <i *ngIf="sortByColumn=='firstName' && !sortAscending" class="fa fa-arrow-down"
+                           aria-hidden="true"> </i>
+                     </th>
+                     <th (click)="onSortByColumnChange('lastName')">Last name
+                        <i *ngIf="sortByColumn=='lastName' && sortAscending" class="fa fa-arrow-up"
+                           aria-hidden="true"></i>
+                        <i *ngIf="sortByColumn=='lastName' && !sortAscending" class="fa fa-arrow-down"
+                           aria-hidden="true"> </i>
+                     </th>
+                     <th (click)="onSortByColumnChange('username')">Username
+                        <i *ngIf="sortByColumn=='username' && sortAscending" class="fa fa-arrow-up"
+                           aria-hidden="true"></i>
+                        <i *ngIf="sortByColumn=='username' && !sortAscending" class="fa fa-arrow-down"
+                           aria-hidden="true"></i>
+                     </th>
+                     <th (click)="onSortByColumnChange('email')">Email<i *ngIf="sortByColumn=='email' && sortAscending"
+                           class="fa fa-arrow-up" aria-hidden="true"></i>
+                        <i *ngIf="sortByColumn=='email' && !sortAscending" class="fa fa-arrow-down" aria-hidden="true">
+                        </i>
+                     </th>
+                     <th>Status</th>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor="let user of users">
+                     <td scope="row">{{ user.firstName }}</td>
+                     <td>{{ user.lastName }}</td>
+                     <td>{{ user.username }}</td>
+                     <td>{{ user.email }}</td>
+                     <td *ngIf="user.active">Active</td>
+                     <td *ngIf="!user.active">Deactive</td>
+                     <td><a [routerLink]="['/user-details', user.id]">View</a></td>
+                     <td><a [routerLink]="['/user-edit', user.id]">Edit</a></td>
+                     <td><a href="#" (click)="deleteUser($event, user.id)">Delete</a></td>
+                     <td><a [routerLink]="['/user-assign', user.id]">Assign</a></td>
+                  </tr>
+               </tbody>
+            </table>
+            <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChange)="onPageChange($event)">
+            </app-pagination>
+         </div>
+      </div>
+   </div>
+</div>

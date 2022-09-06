@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center" style="padding-top: 20px;">
+            <div class="container" style="padding-left: 0px; padding-right: 0px;">
+            </div>
+            <div class="container box" style="margin-top: 10px;">
+                <form [formGroup]="formData" (ngSubmit)="onEditSubmit(formData.value)" class="form" novalidate>
+                    <div class="form-group">
+                        <label for="firstName">First name</label>
+                        <input type="hidden" class="form-control" id="id" formControlName="id">
+                        <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                        <div *ngIf="!firstNameValue?.valid && (firstNameValue?.dirty ||firstNameValue?.touched)"
+                            class="validation-error">
+                            <div [hidden]="!firstNameValue.errors.required">
+                                First name is required
+                            </div>
+                            <div [hidden]="!firstNameValue.hasError('maxlength')">
+                                The maximum length for this field is 50 characters.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last name</label>
+                        <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                        <div *ngIf="!lastNameValue?.valid && (lastNameValue?.dirty ||lastNameValue?.touched)"
+                            class="validation-error">
+                            <div [hidden]="!lastNameValue.errors.required">
+                                Last name is required
+                            </div>
+                            <div [hidden]="!lastNameValue.hasError('maxlength')">
+                                The maximum length for this field is 50 characters.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" formControlName="email">
+                        <div *ngIf="!emailValue?.valid && (emailValue?.dirty ||emailValue?.touched)"
+                            class="validation-error">
+                            <div [hidden]="!emailValue.errors.email">
+                                Email is not valid
+                            </div>
+                            <div [hidden]="!emailValue.hasError('maxlength')">
+                                The maximum length for this field is 100 characters.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: row;">
+                        <label for="active">Active</label>
+                        <label class="switch" style="width: 75px">
+                            <input type="checkbox" class="form-control" id="active" formControlName="active">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit"
+                        [disabled]="!formData.valid">Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

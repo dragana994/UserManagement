@@ -1,0 +1,4 @@
+<div class="btn-group" role="group">
+  <button type="button" class="btn btn-primary" (click)="onClickPrevious()" [disabled]="currentPage == 1">Previous page</button>
+  <button type="button" class="btn btn-primary" (click)="onClickNext()" [disabled]="currentPage == totalPages">Next page</button>
+</div>
