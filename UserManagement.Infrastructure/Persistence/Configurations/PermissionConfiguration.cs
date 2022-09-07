@@ -14,6 +14,9 @@ namespace UserManagement.Infrastructure.Persistence.Configurations
                 .IsRequired()
                 .HasMaxLength(10);
 
+            builder.HasIndex(u => u.Code)
+                .IsUnique();
+
             builder.Property(x => x.Description)
                 .IsRequired()
                 .HasMaxLength(200);

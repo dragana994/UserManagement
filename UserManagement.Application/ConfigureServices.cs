@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using UserManagement.Application.Pipelines;
 
 namespace UserManagement.Application
 {
@@ -11,6 +12,7 @@ namespace UserManagement.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(GlobalExceptionPipeline<,>));
 
             return services;
         }

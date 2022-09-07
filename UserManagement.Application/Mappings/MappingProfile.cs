@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using UserManagement.Application.Services.Permissions.Queries.GetPermissionList;
 using UserManagement.Application.Services.Users.Commands.CreateUser;
 using UserManagement.Application.Services.Users.Queries.GetUserDetails;
 using UserManagement.Application.Services.Users.Queries.GetUserList;

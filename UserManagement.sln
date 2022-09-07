@@ -5,13 +5,17 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{C675B2FC-A89D-4150-874C-DBFBB0653B75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Domain", "UserManagement.Domain\UserManagement.Domain.csproj", "{AC123097-CE98-48EA-B420-D72AB9783329}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Domain", "UserManagement.Domain\UserManagement.Domain.csproj", "{AC123097-CE98-48EA-B420-D72AB9783329}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Application", "UserManagement.Application\UserManagement.Application.csproj", "{EA3171C5-31B2-427B-B110-4E231B516760}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Application", "UserManagement.Application\UserManagement.Application.csproj", "{EA3171C5-31B2-427B-B110-4E231B516760}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Infrastructure", "UserManagement.Infrastructure\UserManagement.Infrastructure.csproj", "{03137617-E9A1-48A1-A600-AD85DB737E60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Infrastructure", "UserManagement.Infrastructure\UserManagement.Infrastructure.csproj", "{03137617-E9A1-48A1-A600-AD85DB737E60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.WebUI", "UserManagement.WebUI\UserManagement.WebUI.csproj", "{91D7FDCA-C363-42F4-9518-80F28D430F1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.WebUI", "UserManagement.WebUI\UserManagement.WebUI.csproj", "{91D7FDCA-C363-42F4-9518-80F28D430F1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5955A56E-EA2E-4BB6-9616-ED73C22976ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Application.Tests", "UserManagement.Application.Tests\UserManagement.Application.Tests.csproj", "{C9F667BB-0D6B-42F8-8C2F-2A8C0D60F203}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,10 @@ Global
 		{91D7FDCA-C363-42F4-9518-80F28D430F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91D7FDCA-C363-42F4-9518-80F28D430F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91D7FDCA-C363-42F4-9518-80F28D430F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F667BB-0D6B-42F8-8C2F-2A8C0D60F203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F667BB-0D6B-42F8-8C2F-2A8C0D60F203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F667BB-0D6B-42F8-8C2F-2A8C0D60F203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F667BB-0D6B-42F8-8C2F-2A8C0D60F203}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +52,7 @@ Global
 		{EA3171C5-31B2-427B-B110-4E231B516760} = {C675B2FC-A89D-4150-874C-DBFBB0653B75}
 		{03137617-E9A1-48A1-A600-AD85DB737E60} = {C675B2FC-A89D-4150-874C-DBFBB0653B75}
 		{91D7FDCA-C363-42F4-9518-80F28D430F1A} = {C675B2FC-A89D-4150-874C-DBFBB0653B75}
+		{C9F667BB-0D6B-42F8-8C2F-2A8C0D60F203} = {5955A56E-EA2E-4BB6-9616-ED73C22976ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F6B5B36-22D2-4DD3-8456-F951FD7B9AC6}

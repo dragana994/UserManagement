@@ -30,6 +30,6 @@ export class PermissionService {
         "An error happened in server. The HTTP status code is " + error.status + " and the error returned is " + error.message);
     }
 
-    return throwError("Error occurred. Pleas try again");
+    return throwError("Error occurred. Please try again");
   }
 }

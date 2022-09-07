@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/models/User';
 import { UserListQuery } from 'src/app/models/UserListQuery';
 import { UserService } from 'src/app/services/user.service';
+import { UserDeleteModalComponent } from '../user-delete-modal/user-delete-modal.component';
 
 @Component({
   selector: 'app-user-list',
@@ -15,12 +17,11 @@ export class UserListComponent implements OnInit {
   currentPage: number = 1;
   totalPages: number;
 
-  searchByFirstName: string = "";
-  searchByLastName: string = "";
+  searchQuery: string = "";
   sortByColumn = "id";
   sortAscending = true;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private _modalService: NgbModal) { }
 
   ngOnInit() {
     this.getUsers();
@@ -30,19 +31,23 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['/user-add']);
   }
 
-  deleteUser(evt, id) {
-    evt.preventDefault();
-    if (confirm("Are you sure to delete the user?")) {
-      this.userService.deleteUser(id)
-        .subscribe(data =>
-          this.getUsers());
-    }
+  deleteUser(event: any, user:User) {
+    event.preventDefault();
+
+    let modalRef = this._modalService.open(UserDeleteModalComponent);
+    modalRef.componentInstance.user = user;
+
+    modalRef.result.then(result => {
+      if (result.toUpperCase() === "OK") {
+        this.userService.deleteUser(user.id)
+          .subscribe(_ => this.getUsers());
+      }
+    });
   }
 
   getUsers() {
     let query: UserListQuery = {
-      firstName: this.searchByFirstName,
-      lastName: this.searchByLastName,
+      searchQuery: this.searchQuery,
       pageSize: 10,
       page: this.currentPage,
       sortColumnName: this.sortByColumn,

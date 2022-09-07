@@ -13,6 +13,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { UserDeleteModalComponent } from './compotnents/user-delete-modal/user-delete-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,17 +22,20 @@ import { HttpClientModule } from '@angular/common/http';
     NavMenuComponent,
     UserListComponent,
     UserDetailComponent,
+    UserDeleteModalComponent,
     UserAddComponent,
     UserEditComponent,
     UserAssignComponent,
     UserPermissionListComponent,
     PaginationComponent
   ],
+  entryComponents: [UserDeleteModalComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'user-list', pathMatch: 'full' },
       { path: 'user-list', component: UserListComponent },

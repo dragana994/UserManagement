@@ -27,14 +27,12 @@ namespace UserManagement.Application.Services.Users.Queries.GetUserList
         {
             var data = _context.Users.AsQueryable();
 
-            if (!string.IsNullOrEmpty(request.FirstName))
+            if (!string.IsNullOrEmpty(request.SearchQuery))
             {
-                data = data.Where(x => x.FirstName == request.FirstName);
-            }
-
-            if (!string.IsNullOrEmpty(request.LastName))
-            {
-                data = data.Where(x => x.LastName == request.LastName);
+                data = data.Where(x => x.FirstName.ToLower().Contains(request.SearchQuery.ToLower()) ||
+                                       x.LastName.ToLower().Contains(request.SearchQuery.ToLower()) ||
+                                       x.Username.ToLower().Contains(request.SearchQuery.ToLower()) ||
+                                       x.Email.ToLower().Contains(request.SearchQuery.ToLower()));
             }
 
             var result = data.ProjectTo<UserListModel>(_mapper.ConfigurationProvider);

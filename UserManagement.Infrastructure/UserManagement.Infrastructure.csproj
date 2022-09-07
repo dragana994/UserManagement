@@ -16,4 +16,8 @@
     <ProjectReference Include="..\UserManagement.Application\UserManagement.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistence\Migrations\" />
+  </ItemGroup>
+
 </Project>

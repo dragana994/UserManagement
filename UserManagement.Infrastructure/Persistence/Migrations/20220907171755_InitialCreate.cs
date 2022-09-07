@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using System;
 
-namespace UserManagement.Infrastructure.Presistance.Migrations
+namespace UserManagement.Infrastructure.Persistence.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -69,6 +69,12 @@ namespace UserManagement.Infrastructure.Presistance.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Permissions_Code",
+                table: "Permissions",
+                column: "Code",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserPermissions_PermissionId",

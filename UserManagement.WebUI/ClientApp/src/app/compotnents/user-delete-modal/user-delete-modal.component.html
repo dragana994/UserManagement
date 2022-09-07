@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">User deletion</h4>
+  <button type="button" class="btn-close" aria-describedby="modal-title" (click)="close('Cancel')"></button>
+</div>
+<div class="modal-body">
+  <p><strong>Are you sure you want to delete <span class="text-primary">{{user.username}}</span> user?</strong></p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" (click)="close('Cancel')">Cancel</button>
+  <button type="button" class="btn btn-danger" (click)="close('Ok')">Ok</button>
+</div>

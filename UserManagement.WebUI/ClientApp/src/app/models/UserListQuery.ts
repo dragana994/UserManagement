@@ -1,6 +1,5 @@
 export interface UserListQuery {
-    firstName: string;
-    lastName: string;
+    searchQuery: string;
     page: number;
     pageSize: number;
     sortColumnName: string;

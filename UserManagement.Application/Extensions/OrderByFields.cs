@@ -8,7 +8,7 @@ namespace UserManagement.Application.Extensions
     {
         public static IQueryable<T> DynamicOrderBy<T>(this IQueryable<T> query, string sortField, bool asc)
         {
-            var param = Expression.Parameter(typeof(T), sortField); //TODO
+            var param = Expression.Parameter(typeof(T), sortField);
             var prop = Expression.Property(param, sortField);
             var exp = Expression.Lambda(prop, param);
             string method = asc ? "OrderBy" : "OrderByDescending";
