@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-assign.component.css']
 })
 export class UserAssignComponent implements OnInit, OnDestroy {
+  title: string = "Assign permissions";
   permissions: Permission[];
   userId: number;
   private sub: any;
