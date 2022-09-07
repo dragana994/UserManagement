@@ -42,7 +42,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       { path: 'user-add', component: UserAddComponent },
       { path: 'user-details/:id', component: UserDetailComponent },
       { path: 'user-assign/:id', component: UserAssignComponent },
-      { path: 'user-edit/:id', component: UserEditComponent }
+      { path: 'user-edit/:id', component: UserEditComponent },
+      { path: '**', redirectTo: 'user-list' }
     ])
   ],
   providers: [],
