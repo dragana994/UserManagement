@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Linq.Expressions;
 
 namespace UserManagement.Application.Extensions
@@ -11,8 +10,8 @@ namespace UserManagement.Application.Extensions
             var param = Expression.Parameter(typeof(T), sortField);
             var prop = Expression.Property(param, sortField);
             var exp = Expression.Lambda(prop, param);
-            string method = asc ? "OrderBy" : "OrderByDescending";
-            Type[] types = new Type[] { query.ElementType, exp.Body.Type };
+            var method = asc ? "OrderBy" : "OrderByDescending";
+            var types = new[] { query.ElementType, exp.Body.Type };
             var mce = Expression.Call(typeof(Queryable), method, types, query.Expression, exp);
 
             return query.Provider.CreateQuery<T>(mce);

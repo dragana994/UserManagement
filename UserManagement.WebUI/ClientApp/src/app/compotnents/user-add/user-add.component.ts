@@ -54,5 +54,4 @@ export class UserAddComponent implements OnInit {
 
     this.userService.addUser(newUser).subscribe(res => this.router.navigate(['/user-list']));
   }
-
 }
